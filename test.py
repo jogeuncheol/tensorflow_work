@@ -139,7 +139,7 @@ history = model.fit(train_generator,
                     validation_data=valid_generator,
                     epochs=epochs)
 
-# tiny control
+# fine tuning
 base_model.trainable = True
 
 print("Number of layers in the base model : ", len(base_model.layers))
