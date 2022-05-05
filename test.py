@@ -176,6 +176,19 @@ plt.ylabel("Loss/Accuracy")
 plt.legend(loc="lower left")
 plt.savefig("ploy.jpg")
 
+N = total_epochs
+plt.style.use("ggplot")
+plt.figure()
+plt.plot(np.arange(epochs, N), history_fine.history["loss"], label="train_loss")
+plt.plot(np.arange(epochs, N), history_fine.history["val_loss"], label="val_loss")
+plt.plot(np.arange(epochs, N), history_fine.history["accuracy"], label="train_acc")
+plt.plot(np.arange(epochs, N), history_fine.history["val_accuracy"], label="val_acc")
+plt.title("Training Loss and Accuracy")
+plt.xlabel("Epoch #")
+plt.ylabel("Loss/Accuracy")
+plt.legend(loc="lower left")
+plt.savefig("ploy_fine.jpg")
+
 # 6. 모델 사용하기
 test1 = cv2.imread('testing_data/abc001.jpg')
 test1 = cv2.resize(test1, dsize=(224, 224))
