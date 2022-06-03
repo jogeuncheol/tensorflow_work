@@ -3,9 +3,9 @@ import cv2
 import numpy as np
 import mss
 
-model = tf.keras.models.load_model('./save_model_5')
-img_height = 180
-img_width = 180
+model = tf.keras.models.load_model('./save_model_6')
+img_height = 224
+img_width = 224
 class_names = ['non_died', 'you_died']
 
 with mss.mss() as screen:
@@ -15,7 +15,7 @@ with mss.mss() as screen:
         image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         image = image.reshape(1, img_height, img_width, 3).astype('float32')
         prediction = model.predict(image)
-        prediction = tf.nn.sigmoid(prediction)
+        prediction = tf.nn.softmax(prediction)
         class_name = class_names[np.argmax(prediction)]
         print("predict", class_name)
 
