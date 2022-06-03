@@ -1,15 +1,14 @@
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image_dataset_from_directory
 from tensorflow.keras.callbacks import EarlyStopping
-import numpy as np
 import matplotlib.pyplot as plt
-import cv2
 
 train_data = 'E:\\workspace\\ML_study\\AI_project\\dataset1\\train\\'
 valid_data = 'E:\\workspace\\ML_study\\AI_project\\dataset1\\valid\\'
+# test_data = 'E:\\workspace\\ML_study\\AI_project\\dataset1\\test\\'
 
-image_size = (180, 180)
-batch_size = 16
+image_size = (224, 224)
+batch_size = 8
 epochs = 50
 
 train_set = image_dataset_from_directory(
@@ -36,7 +35,7 @@ data_augmentation = tf.keras.Sequential(
     [
         tf.keras.layers.experimental.preprocessing.RandomFlip(
             'horizontal',
-            input_shape=(180, 180, 3)
+            input_shape=(224, 224, 3)
         ),
         tf.keras.layers.experimental.preprocessing.RandomRotation(0.1),
         tf.keras.layers.experimental.preprocessing.RandomZoom(0.1)
@@ -67,7 +66,7 @@ model = tf.keras.Sequential([
     # tf.keras.layers.Dropout(0.5),
     tf.keras.layers.Dense(64, activation='relu'),
     tf.keras.layers.Dense(16, activation='relu'),
-    tf.keras.layers.Dense(2, activation='sigmoid'),
+    tf.keras.layers.Dense(2, activation='softmax'),
 ]) # Dropout :: 규제기법, 항상 사용하는것은 아님, input:0.2, 은닉층:0.5, 은닉층을 2배로 준다.
 
 model.compile(
@@ -88,8 +87,8 @@ history = model.fit(
     epochs=epochs
 )
 
-model.save('./save_model_5')
-model.save('./save_model_5.h5', save_format='h5')
+model.save('./save_model_7')
+model.save('./save_model_7.h5', save_format='h5')
 
 early_epoch = history.epoch[-1] + 1
 acc = history.history['accuracy']
@@ -115,13 +114,12 @@ plt.title('Training and Validation Loss')
 plt.show()
 
 # 테스트 데이터 평가
-test_data = 'E:\\workspace\\ML_study\\AI_project\\dataset1\\test\\'
-test_set = image_dataset_from_directory(
-    test_data,
-    shuffle=True,
-    image_size=image_size,
-    batch_size=batch_size
-)
-loss, accuracy = model.evaluate(test_set)
-print('Test Loss : ', loss)
-print('Test Accuracy : ', accuracy)
+# test_set = image_dataset_from_directory(
+#     test_data,
+#     shuffle=True,
+#     image_size=image_size,
+#     batch_size=batch_size
+# )
+# loss, accuracy = model.evaluate(test_set)
+# print('Test Loss : ', loss)
+# print('Test Accuracy : ', accuracy)
