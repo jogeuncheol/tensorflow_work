@@ -9,8 +9,13 @@ for idx, filename in enumerate(os.listdir(path_dir)):
     print(image_path)
 
     # image read
-    image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+    try:
+        image = cv2.imread(image_path, cv2.IMREAD_COLOR)
+    except:
+        print('image read fail')
+        break
     h, w, _ = image.shape
+
     # image crop
     image = image[h//3:h//3*2, w//3:w//3*2]
     cv2.imshow("crop image", image)
@@ -18,7 +23,7 @@ for idx, filename in enumerate(os.listdir(path_dir)):
         cv2.destroyAllWindows()
 
     # crop image save
-    img_name = save_dir + str(idx + 731) + '.jpg'
+    img_name = save_dir + str(idx) + '.jpg'
     cv2.imwrite(img_name, image)
 
 print(len(os.listdir(path_dir)))
