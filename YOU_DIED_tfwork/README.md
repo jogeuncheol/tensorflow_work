@@ -3,6 +3,14 @@
 ## YOU DIED Classification Project
 - [코드 / 결과](https://github.com/jogeuncheol/tensorflow_work/tree/main/YOU_DIED_tfwork)
 
+#### File
+- [model.py](https://github.com/jogeuncheol/tensorflow_work/blob/main/YOU_DIED_tfwork/model.py) : 최종 학습 모델
+- [crop.py](https://github.com/jogeuncheol/tensorflow_work/blob/main/YOU_DIED_tfwork/crop.py) : 데이터셋 가공 스크립트
+- [capture.py](https://github.com/jogeuncheol/tensorflow_work/blob/main/YOU_DIED_tfwork/capture.py) : 학습 결과 모델 테스트 스크립트
+- [model19_0608_save.ipynb](https://github.com/jogeuncheol/tensorflow_work/blob/main/YOU_DIED_tfwork/model19_0608_save.ipynb) : 최종 학습 모델 코드 정리 노트북
+- [model19_0609_resize_image.ipynb](https://github.com/jogeuncheol/tensorflow_work/blob/main/YOU_DIED_tfwork/model19_0609_resize_image.ipynb) : resize 데이터셋 학습 모델 노트북
+- [AI_project_you_died.ipynb](https://github.com/jogeuncheol/tensorflow_work/blob/main/YOU_DIED_tfwork/AI_project_you_died.ipynb) : 텐서플로우 이미지분류 튜토리얼 따라해보기
+
 ### Development Environment
 #### OS
 - Windows10
