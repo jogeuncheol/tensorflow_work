@@ -11,7 +11,7 @@
 - jupyter notebook
 #### Training Environment
 - Google Colab
-- local PC :: intel i7-10700F, RAM-32GB, GTX-1060 6GB
+- local PC Pycharm:: intel i7-10700F, RAM-32GB, GTX-1060 6GB
 #### Requirement
 - Python3.7
 - openCV==4.5.5.64
