@@ -25,3 +25,5 @@
 
 ## Reference
 - [텐서플로우 이미지 분류](https://www.tensorflow.org/tutorials/images/classification?hl=ko)
+- [VGG net 리뷰1](https://bskyvision.com/504)
+- [VGG net 리뷰2](https://medium.com/@msmapark2/vgg16-논문-리뷰-very-deep-convolutional-networks-for-large-scale-image-recognition-6f748235242a)
